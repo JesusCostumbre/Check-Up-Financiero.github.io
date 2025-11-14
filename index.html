@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Descubre tu Salud Financiera en Minutos | Damaris Costumbre Seguros</title>
+    <link rel="stylesheet" href="style.css"> 
+</head>
+<body>
+
+    <header>
+        <div class="logo">
+            <a href="#">Damaris Costumbre Seguros</a>
+        </div>
+    </header>
+
+    <main>
+        
+        <section id="hero">
+            <h1>Descubre tu Salud Financiera en Minutos</h1>
+            <p>Utiliza nuestra herramienta gratuita para obtener un análisis claro de tu situación financiera actual y dar el primer paso hacia un futuro seguro y planificado.</p>
+
+            <article class="asesora-presentacion">
+                <h2>Conoce a tu asesora, Damaris Costumbre</h2>
+                <div class="contenido-asesora">
+                    <p>Con más de 15 años de experiencia en el sector financiero y de seguros, mi misión es ayudarte a navegar las complejidades de la planificación financiera con confianza y claridad...</p>
+                    <img src="assets/images/ana-garcia-asesora.jpg" alt="Retrato profesional de Damaris Costumbre, Asesora de Seguros." width="300" height="400">
+                </div>
+            </article>
+            
+            <hr>
+            
+            <section id="calculadora">
+                <h2>Calcula tu Bienestar Financiero</h2>
+                
+                <h3>🧾 Check Up Financiero Profesional</h3>
+                <p>Descubre cómo estás manejando tus finanzas personales y qué áreas puedes mejorar. Tardarás menos de 2 minutos en responder.</p>
+                
+                <form id="quizForm" action="https://formspree.io/f/mdkyaaoz" method="POST">
+                    
+                    <fieldset class="habitos-financieros">
+                        <legend>Sección 1: Hábitos financieros</legend>
+                        
+                        <p>1. ¿Llevas un registro o control de tus ingresos y gastos mensualmente?</p>
+                        <label><input type="radio" name="q1_registro" value="siempre" required> Sí, siempre</label><br>
+                        <label><input type="radio" name="q1_registro" value="a_veces"> A veces</label><br>
+                        <label><input type="radio" name="q1_registro" value="no_nunca"> No, nunca</label>
+                        
+                        <hr>
+
+                        <p>2. ¿Qué porcentaje de tus ingresos logras ahorrar mensualmente?</p>
+                        <label><input type="radio" name="q2_ahorro_porcentaje" value="mas_20" required> Más del 20%</label><br>
+                        <label><input type="radio" name="q2_ahorro_porcentaje" value="entre_10_20"> Entre 10% y 20%</label><br>
+                        <label><input type="radio" name="q2_ahorro_porcentaje" value="menos_10"> Menos del 10%</label><br>
+                        <label><input type="radio" name="q2_ahorro_porcentaje" value="no_ahorro"> No ahorro</label>
+
+                        <hr>
+
+                        <p>3. ¿Tienes un fondo de emergencia equivalente a 3 o más meses de tus gastos?</p>
+                        <label><input type="radio" name="q3_fondo_emergencia" value="si" required> Sí</label><br>
+                        <label><input type="radio" name="q3_fondo_emergencia" value="en_proceso"> Estoy en proceso</label><br>
+                        <label><input type="radio" name="q3_fondo_emergencia" value="no"> No</label>
+                    </fieldset>
+
+                    <fieldset class="proteccion-seguridad">
+                        <legend>Sección 2: Protección y seguridad</legend>
+                        
+                        <p>4. ¿Cuentas con algún seguro de vida o de gastos médicos mayores?</p>
+                        <label><input type="radio" name="q4_seguros" value="ambos" required> Sí, ambos</label><br>
+                        <label><input type="radio" name="q4_seguros" value="solo_uno"> Solo uno de ellos</label><br>
+                        <label><input type="radio" name="q4_seguros" value="ninguno"> Ninguno</label>
+                        
+                        <hr>
+
+                        <p>5. Si llegaras a faltar, ¿tu familia tendría un respaldo económico?</p>
+                        <label><input type="radio" name="q5_respaldo_familiar" value="si" required> Sí</label><br>
+                        <label><input type="radio" name="q5_respaldo_familiar" value="no_seguro"> No estoy seguro/a</label><br>
+                        <label><input type="radio" name="q5_respaldo_familiar" value="no"> No</label>
+                    </fieldset>
+
+                    <fieldset class="planeacion-futuro">
+                        <legend>Sección 3: Planeación y futuro</legend>
+                        
+                        <p>6. ¿Tienes un plan para tu retiro o estás aportando a un instrumento de inversión a largo plazo?</p>
+                        <label><input type="radio" name="q6_plan_retiro" value="si" required> Sí</label><br>
+                        <label><input type="radio" name="q6_plan_retiro" value="me_interesa"> No, pero me interesa</label><br>
+                        <label><input type="radio" name="q6_plan_retiro" value="no"> No</label>
+
+                        <hr>
+
+                        <p>7. ¿Sabes cuánto necesitarías para mantener tu estilo de vida cuando te retires?</p>
+                        <label><input type="radio" name="q7_necesidad_retiro" value="si" required> Sí</label><br>
+                        <label><input type="radio" name="q7_necesidad_retiro" value="no_calculado"> No, nunca lo he calculado</label>
+                        
+                        <hr>
+
+                        <p>8. ¿Estás aprovechando las deducciones fiscales que te permiten tus seguros o planes de retiro?</p>
+                        <label><input type="radio" name="q8_deducciones" value="si" required> Sí</label><br>
+                        <label><input type="radio" name="q8_deducciones" value="no"> No</label><br>
+                        <label><input type="radio" name="q8_deducciones" value="no_se"> No sé</label>
+                    </fieldset>
+                    
+                    <fieldset class="contacto">
+                        <legend>Datos de Contacto</legend>
+                        <p>Para recibir tu diagnóstico personalizado, introduce tu nombre y correo:</p>
+                        
+                        <input type="text" name="Nombre_Usuario" placeholder="Tu nombre completo" required><br>
+
+                        <input type="email" name="_replyto" placeholder="Tu correo electrónico" required>
+                    </fieldset>
+
+                    <input type="hidden" name="Resultado_Analisis_Final" id="resultado_calculado">
+
+                    <button type="submit">Obtener Análisis Gratuito</button>
+                    
+                    <p class="aviso-legal-form">Al obtener el análisis, aceptas los términos y condiciones.</p>
+                </form>
+            </section>
+            
+            <section id="resultados-analisis" class="hidden">
+                <div class="resultados-header">
+                    <h2 id="titulo-resultados">Aquí están tus resultados, [Nombre]</h2> 
+                    <p id="subtitulo-resultados">Tu salud financiera es buena. Hemos identificado algunas áreas clave para mejorar tu futuro financiero y asegurar tu tranquilidad.</p>
+                </div>
+
+                <div class="evaluacion-general-card">
+                    <div class="grafico">
+                        <img src="assets/images/resultados-grafico.png" alt="Gráfico de crecimiento financiero" style="width: 100px; height: auto;">
+                    </div>
+                    <div class="texto-evaluacion">
+                        <p class="etiqueta">EVALUACIÓN GENERAL</p>
+                        <h3 id="diagnostico-titulo">Tu Situación Financiera: [Diagnóstico]</h3>
+                        <p id="diagnostico-mensaje">[Mensaje Detallado]</p>
+                    </div>
+                </div>
+
+                <div class="resumen-analisis">
+                    <h3>Resumen de tu Análisis</h3>
+                    <div class="metricas-grid">
+                        <div class="metrica-card">
+                            <p>Puntuación Total</p>
+                            <strong id="metrica-puntuacion">0/24</strong>
+                            <span id="estado-puntuacion" class="estado-neutro">Evaluada</span>
+                        </div>
+                        <div class="metrica-card">
+                            <p>Fondo de Emergencia</p>
+                            <strong id="metrica-emergencia">No Cubierto</strong>
+                            <span id="estado-emergencia" class="estado-alerta">Atención Requerida</span>
+                        </div>
+                        <div class="metrica-card">
+                            <p>Cobertura de Protección</p>
+                            <strong id="metrica-proteccion">Ausente</strong>
+                            <span id="estado-proteccion" class="estado-alerta">Riesgo Alto</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="recomendaciones-personalizadas">
+                    <h3>Recomendaciones Personalizadas</h3>
+                    <div class="recomendacion-item">
+                        <p class="recomendacion-titulo">Aumentar Protección</p>
+                        <p id="rec-proteccion-detalle">[Detalle de recomendación]</p>
+                    </div>
+                    <div class="recomendacion-item">
+                        <p class="recomendacion-titulo">Optimizar Ahorro para el Retiro</p>
+                        <p id="rec-retiro-detalle">[Detalle de recomendación]</p>
+                    </div>
+                </div>
+
+                <div class="cta-asesoria-resultados">
+                    <h3>Convierte este análisis en un plan de acción</h3>
+                    <p>Una asesoría personalizada nos permitirá profundizar en tus metas y crear una estrategia a tu medida. Es gratuita, sin compromiso y es el siguiente paso para asegurar tu futuro.</p>
+                    <a href="#" class="btn-asesoria">Agendar una Asesoría Gratuita</a>
+                </div>
+
+                <div class="asesora-contacto-resultados">
+                    <img src="assets/images/ana-garcia-asesora.jpg" alt="Retrato de Damaris Costumbre, Agente de Seguros Certificada" width="60" height="60">
+                    <p><strong>Damaris Costumbre</strong><br>Agente de Seguros Certificada</p>
+                    <p>Mi misión es ayudarte a construir un futuro financiero sólido y tranquilo.</p>
+                </div>
+
+                <a href="#" class="btn-descargar-pdf">⬇️ Descargar Resumen en PDF</a>
+                <p class="confidencialidad-resultados">Tus datos son confidenciales y están protegidos. No serán compartidos con terceros.</p>
+            </section>
+
+
+        </section>
+
+        <section class="llamada-accion-secundaria">
+            <h2>¿Listo para mejorar tu futuro financiero?</h2>
+            <p>Un análisis es el primer paso. Permíteme ayudarte a interpretar tus resultados y crear un plan de acción personalizado para alcanzar tus metas.</p>
+            <a href="#" class="btn-asesoria">Agendar una Asesoría Gratuita</a>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Damaris Costumbre Seguros. Todos los derechos reservados.</p>
+        <p class="confidencialidad">Tus datos son confidenciales y están protegidos.</p>
+        <p>Aviso de Privacidad | Términos y Condiciones</p>
+    </footer>
+
+    <script src="script.js"></script> 
+</body>
+</html>
