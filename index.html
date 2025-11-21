@@ -9,13 +9,13 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&family=Work+Sans:ital@0;1&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-
+    
 </head>
 <body>
 
     <header>
         <div class="logo">
-            <a href="#">Damaris Costumbre Seguros</a>
+            <a href="./index.html">Damaris Costumbre Seguros</a>
         </div>
         <!-- No hay menú de navegación en el HTML original, por lo que solo se deja el logo -->
     </header>
@@ -26,7 +26,7 @@
             <h1>Descubre tu Salud Financiera en Minutos</h1>
             <p>Utiliza nuestra herramienta gratuita para obtener un análisis claro de tu situación financiera actual y dar el primer paso hacia un futuro seguro y planificado.</p>
 
-            <article id="asesora-seccion" class="asesora-presentacion container">
+            <article id="asesora-seccion" class="asesora-presentacion">
                 <!-- Se invierten el h2 y el contenido para Mobile First -->
                 <div class="contenido-asesora">
                     <div class="asesora-texto">
@@ -34,7 +34,7 @@
                         <p>Con más de 15 años de experiencia en el sector financiero y de seguros, mi misión es ayudarte a navegar las complejidades de la planificación financiera con confianza y claridad...</p>
                     </div>
                     <!-- Nota: La imagen necesita ser cargada desde el path correcto -->
-                    <img src="assets/images/ana-garcia-asesora.jpg" alt="Retrato profesional de Damaris Costumbre, Asesora de Seguros." width="300" height="400">
+                    <img src="assets/img/foto_perfil.jpg" alt="Retrato profesional de Damaris Costumbre, Asesora de Seguros." width="300" height="400">
                 </div>
             </article>
             
@@ -116,7 +116,15 @@
                     
                     <input type="text" name="Nombre_Usuario" placeholder="Tu nombre completo" required>
 
-                    <input type="email" name="_replyto" placeholder="Tu correo electrónico" required>
+                    <!-- CAMBIO CLAVE 1: Añadir patrón de validación al input -->
+                    <input 
+                        type="email" 
+                        name="_replyto" 
+                        placeholder="Tu correo electrónico" 
+                        required
+                        pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+                        title="Introduce una dirección de correo electrónico válida (ej: nombre@dominio.com)"
+                    >
                 </fieldset>
 
                 <input type="hidden" name="Resultado_Analisis_Final" id="resultado_calculado">
@@ -129,85 +137,91 @@
         
         
         <section id="resultados-analisis" class="container hidden">
-            <div class="resultados-header">
-                <h2 id="titulo-resultados">Aquí están tus resultados, [Nombre]</h2> 
-                <p id="subtitulo-resultados">Tu salud financiera es buena. Hemos identificado algunas áreas clave para mejorar tu futuro financiero y asegurar tu tranquilidad.</p>
-            </div>
-
-            <div class="evaluacion-general-card">
-                <div class="grafico">
-                    <!-- Imagen de un gráfico placeholder para el resultado -->
-                    <img src="https://placehold.co/100x100/e6f2ff/007bff?text=GRÁFICO" alt="Gráfico de crecimiento financiero">
+            <!-- Nuevo contenedor para ajustar el contenido de los resultados -->
+            <div id="pdf-content-wrapper"> 
+                <div class="resultados-header">
+                    <h2 id="titulo-resultados">Aquí están tus resultados, [Nombre]</h2> 
+                    <p id="subtitulo-resultados">Tu salud financiera es buena. Hemos identificado algunas áreas clave para mejorar tu futuro financiero y asegurar tu tranquilidad.</p>
                 </div>
-                <div class="texto-evaluacion">
-                    <p class="etiqueta">EVALUACIÓN GENERAL</p>
-                    <h3 id="diagnostico-titulo">Tu Situación Financiera: [Diagnóstico]</h3>
-                    <p id="diagnostico-mensaje">El análisis indica que tienes hábitos saludables, pero te falta protección contra imprevistos y optimizar el ahorro a largo plazo.</p>
-                </div>
-            </div>
 
-            <div class="resumen-analisis">
-                <h3>Resumen de tu Análisis</h3>
-                <div class="metricas-grid">
-                    <div class="metrica-card">
-                        <p>Puntuación Total</p>
-                        <strong id="metrica-puntuacion">18/24</strong>
-                        <span id="estado-puntuacion" class="estado-neutro">Buena Evaluación</span>
+                <div class="evaluacion-general-card">
+                    <div class="grafico">
+                        <!-- Imagen de un gráfico placeholder para el resultado -->
+                        <img src="https://placehold.co/100x100/e6f2ff/007bff?text=GRÁFICO" alt="Gráfico de crecimiento financiero">
                     </div>
-                    <div class="metrica-card">
-                        <p>Fondo de Emergencia</p>
-                        <strong id="metrica-emergencia">No Cubierto</strong>
-                        <span id="estado-emergencia" class="estado-alerta">Atención Requerida</span>
-                    </div>
-                    <div class="metrica-card">
-                        <p>Cobertura de Protección</p>
-                        <strong id="metrica-proteccion">Ausente</strong>
-                        <span id="estado-proteccion" class="estado-alerta">Riesgo Alto</span>
+                    <div class="texto-evaluacion">
+                        <p class="etiqueta">EVALUACIÓN GENERAL</p>
+                        <h3 id="diagnostico-titulo">Tu Situación Financiera: [Diagnóstico]</h3>
+                        <p id="diagnostico-mensaje">El análisis indica que tienes hábitos saludables, pero te falta protección contra imprevistos y optimizar el ahorro a largo plazo.</p>
                     </div>
                 </div>
-            </div>
 
-            <div class="recomendaciones-personalizadas">
-                <h3>Recomendaciones Personalizadas</h3>
-                <div class="recomendacion-item">
-                    <p class="recomendacion-titulo">Aumentar Protección</p>
-                    <p id="rec-proteccion-detalle">Dado que no cuentas con cobertura médica o de vida, te recomendamos explorar opciones flexibles para proteger el patrimonio y los ingresos de tu familia ante un evento inesperado.</p>
+                <div class="resumen-analisis">
+                    <h3>Resumen de tu Análisis</h3>
+                    <div class="metricas-grid">
+                        <div class="metrica-card">
+                            <p>Puntuación Total</p>
+                            <strong id="metrica-puntuacion">18/24</strong>
+                            <span id="estado-puntuacion" class="estado-neutro">Buena Evaluación</span>
+                        </div>
+                        <div class="metrica-card">
+                            <p>Fondo de Emergencia</p>
+                            <strong id="metrica-emergencia">No Cubierto</strong>
+                            <span id="estado-emergencia" class="estado-alerta">Atención Requerida</span>
+                        </div>
+                        <div class="metrica-card">
+                            <p>Cobertura de Protección</p>
+                            <strong id="metrica-proteccion">Ausente</strong>
+                            <span id="estado-proteccion" class="estado-alerta">Riesgo Alto</span>
+                        </div>
+                    </div>
                 </div>
-                <div class="recomendacion-item">
-                    <p class="recomendacion-titulo">Optimizar Ahorro para el Retiro</p>
-                    <p id="rec-retiro-detalle">Estás ahorrando, ¡felicidades! Sin embargo, para tu edad, es crucial canalizar parte de ese ahorro a planes de retiro que ofrezcan ventajas fiscales y un crecimiento compuesto garantizado.</p>
+
+                <div class="recomendaciones-personalizadas">
+                    <h3>Recomendaciones Personalizadas</h3>
+                    <div class="recomendacion-item">
+                        <p class="recomendacion-titulo">Aumentar Protección</p>
+                        <p id="rec-proteccion-detalle">Dado que no cuentas con cobertura médica o de vida, te recomendamos explorar opciones flexibles para proteger el patrimonio y los ingresos de tu familia ante un evento inesperado.</p>
+                    </div>
+                    <div class="recomendacion-item">
+                        <p class="recomendacion-titulo">Optimizar Ahorro para el Retiro</p>
+                        <p id="rec-retiro-detalle">Estás ahorrando, ¡felicidades! Sin embargo, para tu edad, es crucial canalizar parte de ese ahorro a planes de retiro que ofrezcan ventajas fiscales y un crecimiento compuesto garantizado.</p>
+                    </div>
                 </div>
-            </div>
 
-            <div class="cta-asesoria-resultados">
-                <h3>Convierte este análisis en un plan de acción</h3>
-                <p>Una asesoría personalizada nos permitirá profundizar en tus metas y crear una estrategia a tu medida. Es gratuita, sin compromiso y es el siguiente paso para asegurar tu futuro.</p>
-                <a href="#" class="btn-asesoria">Agendar una Asesoría Gratuita</a>
-            </div>
-
-            <div class="asesora-contacto-resultados">
-                <!-- Imagen de la asesora placeholder -->
-                <img src="https://placehold.co/60x60/343a40/ffffff?text=DC" alt="Retrato de Damaris Costumbre, Agente de Seguros Certificada">
-                <div style="flex-grow: 1;">
-                    <p><strong>Damaris Costumbre</strong><br>Agente de Seguros Certificada</p>
-                    <p style="color: var(--color-support); font-size: 0.85rem;">Mi misión es ayudarte a construir un futuro financiero sólido y tranquilo.</p>
+                <div class="cta-asesoria-resultados">
+                    <h3>Convierte este análisis en un plan de acción</h3>
+                    <p>Una asesoría personalizada nos permitirá profundizar en tus metas y crear una estrategia a tu medida. Es gratuita, sin compromiso y es el siguiente paso para asegurar tu futuro.</p>
+                    <a href="#" class="btn-asesoria">Agendar una Asesoría Gratuita</a>
                 </div>
-            </div>
 
-            <a href="#" class="btn-descargar-pdf">⬇️ Descargar Resumen en PDF</a>
-            <!-- Botón de regreso al inicio añadido con el mismo estilo de descarga -->
-            <a href="#" id="btn-regresar-inicio" class="btn-descargar-pdf">⌂ Regresar al Inicio</a>
-            <p class="confidencialidad-resultados">Tus datos son confidenciales y están protegidos. No serán compartidos con terceros.</p>
+                <div class="asesora-contacto-resultados">
+                    <!-- Imagen de la asesora placeholder -->
+                    <img src="https://placehold.co/60x60/343a40/ffffff?text=DC" alt="Retrato de Damaris Costumbre, Agente de Seguros Certificada">
+                    <div style="flex-grow: 1;">
+                        <p><strong>Damaris Costumbre</strong><br>Agente de Seguros Certificada</p>
+                        <p style="color: var(--color-support); font-size: 0.85rem;">Mi misión es ayudarte a construir un futuro financiero sólido y tranquilo.</p>
+                    </div>
+                </div>
+
+                <!-- Se eliminó el botón de Descargar PDF -->
+                
+                <!-- Botón de regreso al inicio añadido con el mismo estilo de descarga -->
+                <a href="#" id="btn-regresar-inicio" class="btn-descargar-pdf"> Regresar al Inicio</a>
+                <p class="confidencialidad-resultados">Tus datos son confidenciales y están protegidos. No serán compartidos con terceros.</p>
+            </div>
+            <!-- Fin de #pdf-content-wrapper -->
         </section>
 
 
         <section class="llamada-accion-secundaria">
             <h2>¿Listo para mejorar tu futuro financiero?</h2>
             <p>Un análisis es el primer paso. Permíteme ayudarte a interpretar tus resultados y crear un plan de acción personalizado para alcanzar tus metas.</p>
-            <a href="#" class="btn-asesoria">Agendar una Asesoría Gratuita</a>
+            <a href="https://wa.me/5219512513470?text=Hola%20Damaris,%20acabo%20de%20completar%20el%20Check%20Up%20Financiero%20y%20me%20gustaría%20agendar%20una%20Asesoría%20Gratuita%20para%20revisar%20mis%20resultados.%0A%0AMi%20nombre%20es%20[AQUÍ%20VA%20EL%20NOMBRE%20DEL%20USUARIO]." class="btn-asesoria">Agendar una Asesoría Gratuita</a>
         </section>
 
     </main>
+
 
     <footer>
         <p>&copy; 2025 Damaris Costumbre Seguros. Todos los derechos reservados.</p>
