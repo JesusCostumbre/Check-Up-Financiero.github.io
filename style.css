@@ -141,6 +141,9 @@
             align-content: center;
             padding: 0;
         }
+        .asesora-texto h2 span{
+            color: var(--color-primary);
+        }
         .contenido-asesora p {
             padding: 0 20px 20px;
             margin: 0;
