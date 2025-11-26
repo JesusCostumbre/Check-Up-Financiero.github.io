@@ -55,23 +55,29 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Función para calcular la puntuación y el diagnóstico
     function calculateAndDisplayResults() {
+
+        // 1. **INICIALIZACIÓN Y CÁLCULO DE PUNTUACIÓN (Orden corregido)**
         let totalScore = 0;
         let results = {};
 
-        // 1. Calcular Puntuación y obtener respuestas
+        // Obtener respuestas y calcular Puntuación
         for (const name in scoreValues) {
             const selectedInput = quizForm.querySelector(`input[name="${name}"]:checked`);
             
             if (selectedInput) {
                 const selectedValue = selectedInput.value;
-                totalScore += scoreValues[name][selectedValue] || 0;
+                // Verificar si el valor existe en scoreValues (para evitar errores con valores no esperados)
+                totalScore += scoreValues[name][selectedValue] || 0; 
                 results[name] = selectedValue;
             } else {
                 console.warn(`Alerta: La pregunta ${name} no fue respondida o el name es incorrecto.`); 
             }
         }
 
-        // 2. Determinar el Diagnóstico General
+        // 2. Cálculo del Porcentaje (Ahora usa el totalScore ya calculado)
+        const porcentaje = Math.round((totalScore / maxScore) * 100);
+
+        // 3. Determinar el Diagnóstico General
         let generalDiagnosis = '';
         let diagnosisMessage = '';
         let estadoGeneral = 'estado-neutro';
@@ -90,7 +96,41 @@ document.addEventListener('DOMContentLoaded', () => {
             estadoGeneral = 'estado-alerta';
         }
 
-        // 3. Determinar el Estado de Métricas Clave (Resumen de Análisis)
+        // 4. Determinar la clase de color basada en el diagnóstico (Basado en totalScore)
+        let claseColorProgreso;
+        if (totalScore >= RANGO_EXCELENTE) {
+            claseColorProgreso = 'progreso-satisfactorio';
+        } else if (totalScore >= RANGO_BUENO) {
+            claseColorProgreso = 'progreso-neutro';
+        } else {
+            claseColorProgreso = 'progreso-alerta';
+        }
+
+        // 5. Aplicar estilos y actualizar el DOM para el GRÁFICO
+        const graficoElement = document.getElementById('grafico-progreso');
+        const porcentajeElement = document.getElementById('porcentaje-display');
+
+        // Limpiar clases y aplicar la nueva clase de color
+        graficoElement.className = 'grafico ' + claseColorProgreso;
+
+        // Obtener el color del diagnóstico (asumiendo que hay una variable CSS para cada estado)
+        // Esto previene el error del código original al obtener el color.
+        const colorEstado = estadoGeneral.split('-')[1]; // 'satisfactorio', 'neutro', 'alerta'
+        const colorDiagnosticoProp = getComputedStyle(document.body).getPropertyValue(`--color-${colorEstado}`) || 'var(--color-primary)'; 
+
+        // Aplica el conic-gradient para dibujar la dona
+        graficoElement.style.background = `conic-gradient(
+            ${colorDiagnosticoProp} 0deg, 
+            ${colorDiagnosticoProp} ${porcentaje * 3.6}deg, 
+            var(--color-border) ${porcentaje * 3.6}deg, 
+            var(--color-border) 360deg
+        )`;
+
+        // Mostrar el porcentaje calculado en el centro
+        porcentajeElement.textContent = `${porcentaje}%`;
+
+
+        // 6. Determinar el Estado de Métricas Clave (Resumen de Análisis)
         
         // Fondo de Emergencia (Q3)
         const emergenciaStatus = {
@@ -115,7 +155,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }[results.q11_donde_ahorras] || { strong: 'Sin Datos', span: 'Evaluada', class: 'estado-neutro' };
 
 
-        // 4. Actualizar el DOM
+        // 7. Actualizar el DOM (el resto de las métricas)
         const nombreInput = quizForm.querySelector('input[name="Nombre_Usuario"]').value || 'Estimado Cliente';
         
         // Títulos principales
@@ -199,12 +239,12 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // =======================================================================
-    // FUNCIÓN DE ENVÍO CORREGIDA
+    // FUNCIÓN DE ENVÍO
     // =======================================================================
     quizForm.addEventListener('submit', (e) => {
         e.preventDefault(); // Detenemos el envío automático del formulario
         
-        // 1. Calcular y mostrar resultados
+        // 1. Ocultar secciones y calcular y mostrar resultados
         calculadoraSection.classList.add('hidden');
         if (asesoraSection) asesoraSection.classList.add('hidden');
         if (heroSection) heroSection.classList.add('hidden');

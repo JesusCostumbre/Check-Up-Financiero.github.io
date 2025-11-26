@@ -672,3 +672,40 @@
         /* ======================================================= */
 
         /* Eliminamos todas las reglas @media print ya que la funcionalidad de PDF fue removida */
+
+
+        #grafico-progreso {
+    /* El tamaño se hereda de .evaluacion-general-card .grafico (100x100), pero lo forzamos */
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    
+    /* Configuración Flex para centrar el porcentaje */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    /* Grosor del hueco de la dona */
+    background-color: var(--color-card-background);
+    
+    /* Sombra opcional para un efecto 3D sutil */
+    box-shadow: 0 0 0 8px var(--color-background) inset;
+    
+    /* Importante para que el JS pueda controlar el progreso */
+    position: relative; 
+    overflow: hidden; /* Oculta el fondo que se salga del círculo */
+}
+
+/* Estilo para el número de porcentaje en el centro */
+#porcentaje-display {
+    position: relative;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--color-text);
+    z-index: 2; /* Asegura que el texto esté encima del gráfico */
+}
+
+/* El fondo del gráfico de dona se genera por JS usando esta clase y conic-gradient */
+.progreso-satisfactorio { background-color: var(--color-status-success); }
+.progreso-neutro { background-color: var(--color-primary); }
+.progreso-alerta { background-color: var(--color-status-alert); }
