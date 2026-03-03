@@ -136,10 +136,18 @@
                 <input type="hidden" name="Rec_Proteccion">
                 <input type="hidden" name="Rec_Retiro">
 
+                <div class="form-group" style="margin-bottom: 1rem; text-align: left;">
+                    <input type="checkbox" id="acepto-privacidad" name="acepto-privacidad" required style="margin-right: 0.5rem; cursor: pointer;">
+                    <label for="acepto-privacidad" style="font-size: 0.85rem; color: #666; cursor: pointer;">
+                        Al obtener el análisis, aceptas nuestro 
+                        <a href="./aviso-de-privacidad.html" target="_blank" style="color: #0056b3; text-decoration: underline;">Aviso de Privacidad</a>.
+                    </label>
+                </div>
+
                 <button type="submit" id="btn-submit">Obtener Análisis Gratuito</button>
-                <p class="aviso-legal-form">Al obtener el análisis, aceptas los términos y condiciones.</p>
             </form>
         </section>
+        
         
         <section id="resultados-analisis" class="container hidden">
             <div id="pdf-content-wrapper"> 
@@ -218,11 +226,13 @@
 
     </main>
 
-    <footer>
-        <p>&copy; 2025 Damaris Costumbre Seguros. Todos los derechos reservados.</p>
-        <p class="confidencialidad">Tus datos son confidenciales y están protegidos.</p>
-        <p>Aviso de Privacidad | Términos y Condiciones</p>
-    </footer>
+    <footer class="text-center py-6 text-sm text-gray-500">
+  <p>© 2025 Damaris Costumbre Seguros. Todos los derechos reservados.</p>
+  <p>Tus datos son confidenciales y están protegidos.</p>
+  <div class="mt-2">
+    <a href="./aviso-de-privacidad.html" class="hover:underline">Aviso de Privacidad</a> | 
+  </div>
+</footer>
 
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
     <script type="text/javascript">
@@ -235,5 +245,3 @@
     <script src="script.js"></script>
 </body>
 </html>
-
-
